@@ -86,6 +86,9 @@ class TodoListItem extends Component {
           state.list[i] = state.list[i+1];
 
         state.list.pop();
+
+        if (state.list.slice(state.index, state.index+5).length === 0 && state.index > 0)
+          state.index = state.index - 5;
       }
 
       renderApp();
