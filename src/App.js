@@ -28,12 +28,17 @@ class AddListItem extends Component {
     renderApp();
   }
 
+  randomItem() {
+    alert(list[Math.floor(Math.random() * list.length)])
+  }
+
   render() {
     return (
       <div className="add-menu-item">
         <input type="text" id="current-item" />
         <p>What will you do?</p>
         <button onClick={this.addItem}>Add to List</button>
+        <button onClick={this.randomItem}>Choose Random</button>
       </div>
     );
   }
