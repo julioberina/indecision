@@ -1,18 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+class TopBar extends Component {
+  render() {
+    return (
+      <div className="topbar">
+        <h1>Indecision App</h1>
+      </div>
+    );
+  }
+}
+
+class AddListItem extends Component {
+  render() {
+    return (
+      <div className="add-menu-item">
+        <input type="text" id="current-item" />
+        <p>What will you do?</p>
+        <button>Add to List</button>
+      </div>
+    );
+  }
+}
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div id="main">
+        <TopBar />
+        <AddListItem />
       </div>
     );
   }
