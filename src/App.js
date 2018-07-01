@@ -5,7 +5,7 @@ import './App.css';
 
 const state = {
   index: 0, // current index for pagination
-  list: ['Item one', 'Item two', 'Item three']
+  list: ['one', 'two', 'three']
 }
 
 class TopBar extends Component {
@@ -95,7 +95,7 @@ class TodoList extends Component {
         <table>
           <tbody>
             {
-              state.list.map((item) =>
+              state.list.slice(state.index, (state.index + 5)).map((item) =>
                 <TodoListItem key={item} value={item} />
               )
             }
