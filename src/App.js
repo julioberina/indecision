@@ -49,12 +49,16 @@ class AddListItem extends Component {
 
 class TodoListPagination extends Component {
   render() {
-    return (
-      <div>
-        <button>Prev</button>
-        <button>Next</button>
-      </div>
-    );
+    if (state.list.length > 5) {
+      return (
+        <div>
+          <br />
+          <button>Prev</button>
+          <button>Next</button>
+        </div>
+      );
+    }
+    else { return (<div></div>); }
   }
 }
 
@@ -97,7 +101,6 @@ class TodoList extends Component {
             }
           </tbody>
         </table>
-        <br />
         <TodoListPagination />
       </div>
     );
