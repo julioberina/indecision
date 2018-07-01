@@ -48,13 +48,27 @@ class AddListItem extends Component {
 }
 
 class TodoListPagination extends Component {
+  nextFive() {
+    if (state.index + 5 < state.list.length) {
+      state.index = state.index + 5;
+      renderApp();
+    }
+  }
+
+  prevFive() {
+    if (state.index - 5 > -1) {
+      state.index = state.index - 5;
+      renderApp();
+    }
+  }
+
   render() {
     if (state.list.length > 5) {
       return (
         <div>
           <br />
-          <button>Prev</button>
-          <button>Next</button>
+          <button onClick={this.prevFive}>Prev</button>
+          <button onClick={this.nextFive}>Next</button>
         </div>
       );
     }
