@@ -4,6 +4,7 @@ import { Component } from 'react';
 import './App.css';
 
 const state = {
+  index: 0, // current index for pagination
   list: ['Item one', 'Item two', 'Item three']
 }
 
@@ -41,6 +42,17 @@ class AddListItem extends Component {
         <p>What will you do?</p>
         <button onClick={this.addItem}>Add to List</button>
         <button onClick={this.randomItem}>Choose Random</button>
+      </div>
+    );
+  }
+}
+
+class TodoListPagination extends Component {
+  render() {
+    return (
+      <div>
+        <button>Prev</button>
+        <button>Next</button>
       </div>
     );
   }
@@ -85,6 +97,8 @@ class TodoList extends Component {
             }
           </tbody>
         </table>
+        <br />
+        <TodoListPagination />
       </div>
     );
   }
