@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import { Component } from 'react';
 import './App.css';
 
-const list = ['Item one', 'Item two', 'Item three'];
+const state = {
+  list: ['Item one', 'Item two', 'Item three']
+}
 
 class TopBar extends Component {
   render() {
@@ -19,17 +21,17 @@ class AddListItem extends Component {
   addItem() {
     let item = document.getElementById('current-item').value;
 
-    if (list.indexOf(item) > -1)
+    if (state.list.indexOf(item) > -1)
       alert("Item is already in the list!");
     else
-      list.push(item);
+      state.list.push(item);
 
     document.getElementById('current-item').value = "";
     renderApp();
   }
 
   randomItem() {
-    alert(list[Math.floor(Math.random() * list.length)])
+    alert(state.list[Math.floor(Math.random() * state.list.length)])
   }
 
   render() {
@@ -47,13 +49,13 @@ class AddListItem extends Component {
 class TodoListItem extends Component {
   removeItem(value) {
     return function() {
-      let ind = list.indexOf(value);
-      if (ind === 0)  list.shift();
+      let ind = state.list.indexOf(value);
+      if (ind === 0)  state.list.shift();
       else {
-        for (let i = ind; i < list.length - 1; ++i)
-          list[i] = list[i+1];
+        for (let i = ind; i < state.list.length - 1; ++i)
+          state.list[i] = state.list[i+1];
 
-        list.pop();
+        state.list.pop();
       }
 
       renderApp();
@@ -77,7 +79,7 @@ class TodoList extends Component {
         <table>
           <tbody>
             {
-              list.map((item) =>
+              state.list.map((item) =>
                 <TodoListItem key={item} value={item} />
               )
             }
