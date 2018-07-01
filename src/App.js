@@ -16,12 +16,18 @@ class TopBar extends Component {
 }
 
 class AddListItem extends Component {
+  addItem() {
+    list.push(document.getElementById('current-item').value);
+    document.getElementById('current-item').value = "";
+    renderApp();
+  }
+
   render() {
     return (
       <div className="add-menu-item">
         <input type="text" id="current-item" />
         <p>What will you do?</p>
-        <button>Add to List</button>
+        <button onClick={this.addItem}>Add to List</button>
       </div>
     );
   }
