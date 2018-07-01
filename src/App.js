@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import { Component } from 'react';
 import './App.css';
 
-const state = {
-  list: ['Item one', 'Item two', 'Item three'],
-};
+const list = ['Item one', 'Item two', 'Item three'];
 
 class TopBar extends Component {
   render() {
@@ -29,6 +27,17 @@ class AddListItem extends Component {
   }
 }
 
+class TodoListItem extends Component {
+  render() {
+    return (
+      <tr key={this.props.keyValue}>
+        <td colSpan="20" key={this.props.keyValue}>{this.props.value}</td>
+        <td className="close" align="center">X</td>
+      </tr>
+    );
+  }
+}
+
 class TodoList extends Component {
   render() {
     return (
@@ -36,11 +45,8 @@ class TodoList extends Component {
         <table>
           <tbody>
             {
-              state.list.map((item) =>
-                <tr key={item}>
-                  <td colSpan="20" key={item}>{item}</td>
-                  <td className="close" align="center">X</td>
-                </tr>
+              list.map((item) =>
+                <TodoListItem key={item} keyValue={item} value={item} />
               )
             }
           </tbody>
