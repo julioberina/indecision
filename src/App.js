@@ -17,7 +17,13 @@ class TopBar extends Component {
 
 class AddListItem extends Component {
   addItem() {
-    list.push(document.getElementById('current-item').value);
+    let item = document.getElementById('current-item').value;
+
+    if (list.indexOf(item) > -1)
+      alert("Item is already in the list!");
+    else
+      list.push(item);
+
     document.getElementById('current-item').value = "";
     renderApp();
   }
