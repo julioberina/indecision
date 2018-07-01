@@ -5,7 +5,7 @@ import './App.css';
 
 const state = {
   index: 0, // current index for pagination
-  list: ['one', 'two', 'three']
+  list: []
 }
 
 class TopBar extends Component {
