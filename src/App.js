@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 
+const state = {
+  list: ['Item one', 'Item two', 'Item three'],
+};
+
 class TopBar extends Component {
   render() {
     return (
@@ -23,12 +27,34 @@ class AddListItem extends Component {
   }
 }
 
+class TodoList extends Component {
+  render() {
+    return (
+      <div className="todo-list">
+        <table>
+          <tbody>
+            {
+              state.list.map((item) =>
+                <tr key={item}>
+                  <td colSpan="20" key={item}>{item}</td>
+                  <td className="close" align="center">X</td>
+                </tr>
+              )
+            }
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+}
+
 class App extends Component {
   render() {
     return (
       <div id="main">
         <TopBar />
         <AddListItem />
+        <TodoList />
       </div>
     );
   }

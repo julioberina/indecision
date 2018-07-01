@@ -15,7 +15,7 @@
 .topbar h1 { font-size: 40pt; }
 
 .add-menu-item {
-  margin-top: 100px;
+  margin-top: 70px;
   margin-left: auto;
   margin-right: auto;
   background-color: black;
@@ -46,4 +46,28 @@
   overflow: hidden;
   color: white;
   font-size: 14pt;
+}
+
+.todo-list {
+  margin-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: black;
+  color: white;
+  max-width: 500px;
+  padding: 10px;
+  font-family: Arial;
+  font-size: 14pt;
+}
+
+.todo-list table {
+  width: 100%;
+}
+
+.todo-list td {
+  border: 2px solid white;
+}
+
+.todo-list .close {
+  cursor: pointer;
 }
