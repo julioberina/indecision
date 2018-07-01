@@ -107,20 +107,23 @@ class TodoListItem extends Component {
 
 class TodoList extends Component {
   render() {
-    return (
-      <div className="todo-list">
-        <table>
-          <tbody>
-            {
-              state.list.slice(state.index, (state.index + 5)).map((item) =>
-                <TodoListItem key={item} value={item} />
-              )
-            }
-          </tbody>
-        </table>
-        <TodoListPagination />
-      </div>
-    );
+    if (state.list.length > 0) {
+      return (
+        <div className="todo-list">
+          <table>
+            <tbody>
+              {
+                state.list.slice(state.index, (state.index + 5)).map((item) =>
+                  <TodoListItem key={item} value={item} />
+                )
+              }
+            </tbody>
+          </table>
+          <TodoListPagination />
+        </div>
+      );
+    }
+    else { return (<div></div>); }
   }
 }
 
