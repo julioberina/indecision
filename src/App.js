@@ -24,6 +24,8 @@ class AddListItem extends Component {
 
     if (state.list.indexOf(item) > -1)
       alert("Item is already in the list!");
+    else if (item === "")
+      alert("Item cannot be empty!");
     else
       state.list.push(item);
 
