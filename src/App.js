@@ -40,11 +40,26 @@ class AddListItem extends Component {
 }
 
 class TodoListItem extends Component {
+  removeItem(value) {
+    return function() {
+      let ind = list.indexOf(value);
+      if (ind === 0)  list.shift();
+      else {
+        for (let i = ind; i < list.length - 1; ++i)
+          list[i] = list[i+1];
+
+        list.pop();
+      }
+
+      renderApp();
+    }
+  }
+
   render() {
     return (
-      <tr key={this.props.keyValue}>
-        <td colSpan="20" key={this.props.keyValue}>{this.props.value}</td>
-        <td className="close" align="center">X</td>
+      <tr>
+        <td colSpan="20">{this.props.value}</td>
+        <td onClick={this.removeItem(this.props.value)} className="close" align="center">X</td>
       </tr>
     );
   }
@@ -58,7 +73,7 @@ class TodoList extends Component {
           <tbody>
             {
               list.map((item) =>
-                <TodoListItem key={item} keyValue={item} value={item} />
+                <TodoListItem key={item} value={item} />
               )
             }
           </tbody>
