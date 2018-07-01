@@ -34,7 +34,10 @@ class AddListItem extends Component {
   }
 
   randomItem() {
-    alert(state.list[Math.floor(Math.random() * state.list.length)])
+    if (state.list.length > 0)
+      alert(state.list[Math.floor(Math.random() * state.list.length)]);
+    else
+      alert("List is empty!");
   }
 
   render() {
