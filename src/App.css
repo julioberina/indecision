@@ -70,4 +70,5 @@
 
 .todo-list .close {
   cursor: pointer;
+  color: #FF1111;
 }
