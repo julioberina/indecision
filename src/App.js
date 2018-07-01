@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Component } from 'react';
 import './App.css';
 
 const state = {
@@ -60,4 +62,6 @@ class App extends Component {
   }
 }
 
-export default App;
+export function renderApp() {
+  return ReactDOM.render(<App />, document.getElementById('root'));
+}
